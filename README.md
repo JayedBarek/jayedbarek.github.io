@@ -14,7 +14,7 @@ A modern, responsive portfolio website built with HTML, CSS, and JavaScript to s
 ## Setup Instructions
 
 1. Fork this repository to your GitHub account
-2. Rename the repository to `JayedBarek.github.io`
+2. Rename the repository to `JayedMohammadBarek.github.io`
 3. Clone the repository to your local machine
 4. Customize the content:
    - Update the projects in `script.js`
@@ -28,7 +28,7 @@ A modern, responsive portfolio website built with HTML, CSS, and JavaScript to s
    - Select main branch as source
    - Save the changes
 
-Your portfolio will be available at `https://JayedBarek.github.io`
+Your portfolio will be available at `https://JayedMohammadBarek.github.io`
 
 ## Customization
 
