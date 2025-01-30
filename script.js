@@ -1,28 +1,28 @@
-// Sample projects data - you can modify this with your actual projects
+// Projects data with new repositories
 const projects = [
     {
-        title: "Machine Learning Algorithms",
-        description: "A comprehensive collection of machine learning algorithms implemented from scratch. Includes supervised and unsupervised learning techniques.",
-        image: "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/images/ml.jpeg",
-        link: "https://github.com/JayedBarek/machine-learning-algorithms",
-        technologies: ["Python", "NumPy", "Pandas", "Scikit-learn"],
-        type: "Fork from microsoft/ML-For-Beginners"
+        title: "Computer Vision Projects",
+        description: "A collection of computer vision projects including face detection, object tracking, and image segmentation using OpenCV and deep learning.",
+        image: "https://raw.githubusercontent.com/matterport/Mask_RCNN/master/assets/street.png",
+        link: "https://github.com/JayedBarek/computer-vision-projects",
+        technologies: ["Python", "OpenCV", "TensorFlow", "PyTorch"],
+        type: "Fork from matterport/Mask_RCNN"
     },
     {
-        title: "Deep Learning Research",
-        description: "Implementation of state-of-the-art deep learning models and research papers. Focus on computer vision and natural language processing.",
-        image: "https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/images/cnn.png",
-        link: "https://github.com/JayedBarek/deep-learning-research",
-        technologies: ["Python", "TensorFlow", "PyTorch", "CUDA"],
-        type: "Fork from tensorflow/models"
+        title: "Natural Language Processing",
+        description: "Implementation of modern NLP techniques including transformers, BERT, and GPT models. Includes text classification, sentiment analysis, and language generation.",
+        image: "https://raw.githubusercontent.com/huggingface/transformers/master/docs/source/imgs/transformers_logo_name.png",
+        link: "https://github.com/JayedBarek/nlp-research",
+        technologies: ["Python", "PyTorch", "Transformers", "NLTK"],
+        type: "Fork from huggingface/transformers"
     },
     {
-        title: "Data Structures and Algorithms",
-        description: "Implementation of various data structures and algorithms with detailed explanations and complexity analysis.",
-        image: "https://raw.githubusercontent.com/TheAlgorithms/Python/master/docs/images/dynamic_programming.png",
-        link: "https://github.com/JayedBarek/algorithms",
-        technologies: ["Python", "C++", "Java"],
-        type: "Fork from TheAlgorithms/Python"
+        title: "Reinforcement Learning",
+        description: "Implementation of various reinforcement learning algorithms and environments. Includes DQN, PPO, and A3C with practical applications.",
+        image: "https://raw.githubusercontent.com/openai/gym/master/docs/assets/classic_control.gif",
+        link: "https://github.com/JayedBarek/rl-algorithms",
+        technologies: ["Python", "PyTorch", "Gym", "NumPy"],
+        type: "Fork from openai/gym"
     }
 ];
 
