@@ -1,28 +1,36 @@
-// Projects data with new repositories
+// Projects data with your actual repositories
 const projects = [
     {
-        title: "Computer Vision Projects",
-        description: "A collection of computer vision projects including face detection, object tracking, and image segmentation using OpenCV and deep learning.",
-        image: "https://raw.githubusercontent.com/matterport/Mask_RCNN/master/assets/street.png",
-        link: "https://github.com/JayedBarek/computer-vision-projects",
-        technologies: ["Python", "OpenCV", "TensorFlow", "PyTorch"],
-        type: "Fork from matterport/Mask_RCNN"
+        title: "Analysis of Computer Algorithms",
+        description: "Implementation and analysis of various computer algorithms, focusing on algorithm design, complexity analysis, and optimization techniques.",
+        image: "https://raw.githubusercontent.com/JayedBarek/CSCE5150-Analysis-of-Computer-Algorithm/main/banner.png",
+        link: "https://github.com/JayedBarek/CSCE5150-Analysis-of-Computer-Algorithm",
+        technologies: ["Python", "Jupyter Notebook", "Algorithm Analysis"],
+        type: "Course Project - CSCE 5150"
     },
     {
-        title: "Natural Language Processing",
-        description: "Implementation of modern NLP techniques including transformers, BERT, and GPT models. Includes text classification, sentiment analysis, and language generation.",
-        image: "https://raw.githubusercontent.com/huggingface/transformers/master/docs/source/imgs/transformers_logo_name.png",
-        link: "https://github.com/JayedBarek/nlp-research",
-        technologies: ["Python", "PyTorch", "Transformers", "NLTK"],
-        type: "Fork from huggingface/transformers"
+        title: "Introduction to Artificial Intelligence",
+        description: "Exploration of fundamental AI concepts including search algorithms, knowledge representation, machine learning, and neural networks.",
+        image: "https://raw.githubusercontent.com/JayedBarek/CSCE5210-Introduction-to-AI/main/banner.png",
+        link: "https://github.com/JayedBarek/CSCE5210-Introduction-to-AI",
+        technologies: ["Python", "TensorFlow", "scikit-learn", "AI Algorithms"],
+        type: "Course Project - CSCE 5210"
     },
     {
-        title: "Reinforcement Learning",
-        description: "Implementation of various reinforcement learning algorithms and environments. Includes DQN, PPO, and A3C with practical applications.",
-        image: "https://raw.githubusercontent.com/openai/gym/master/docs/assets/classic_control.gif",
-        link: "https://github.com/JayedBarek/rl-algorithms",
-        technologies: ["Python", "PyTorch", "Gym", "NumPy"],
-        type: "Fork from openai/gym"
+        title: "Fundamentals of Database Systems",
+        description: "Implementation of database concepts, including relational algebra, SQL, database design, and transaction management.",
+        image: "https://raw.githubusercontent.com/JayedBarek/CSCE5350-Fundamental-of-Database/main/banner.png",
+        link: "https://github.com/JayedBarek/CSCE5350-Fundamental-of-Database",
+        technologies: ["SQL", "Database Design", "PostgreSQL"],
+        type: "Course Project - CSCE 5350"
+    },
+    {
+        title: "Academic Portfolio",
+        description: "A comprehensive academic portfolio showcasing research work, publications, and academic achievements.",
+        image: "https://raw.githubusercontent.com/JayedBarek/academicpages.github.io/master/images/banner.jpg",
+        link: "https://github.com/JayedBarek/academicpages.github.io",
+        technologies: ["JavaScript", "Jekyll", "HTML/CSS", "Markdown"],
+        type: "Personal Website"
     }
 ];
 
