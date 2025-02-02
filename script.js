@@ -1,73 +1,52 @@
-// Projects data with your actual repositories
-const projects = [
-    {
-        title: "Analysis of Computer Algorithms",
-        description: "Implementation and analysis of various computer algorithms, focusing on algorithm design, complexity analysis, and optimization techniques.",
-        image: "https://raw.githubusercontent.com/JayedBarek/CSCE5150-Analysis-of-Computer-Algorithm/main/banner.png",
-        link: "https://github.com/JayedBarek/CSCE5150-Analysis-of-Computer-Algorithm",
-        technologies: ["Python", "Jupyter Notebook", "Algorithm Analysis"],
-        type: "Course Project - CSCE 5150"
-    },
-    {
-        title: "Introduction to Artificial Intelligence",
-        description: "Exploration of fundamental AI concepts including search algorithms, knowledge representation, machine learning, and neural networks.",
-        image: "https://raw.githubusercontent.com/JayedBarek/CSCE5210-Introduction-to-AI/main/banner.png",
-        link: "https://github.com/JayedBarek/CSCE5210-Introduction-to-AI",
-        technologies: ["Python", "TensorFlow", "scikit-learn", "AI Algorithms"],
-        type: "Course Project - CSCE 5210"
-    },
-    {
-        title: "Fundamentals of Database Systems",
-        description: "Implementation of database concepts, including relational algebra, SQL, database design, and transaction management.",
-        image: "https://raw.githubusercontent.com/JayedBarek/CSCE5350-Fundamental-of-Database/main/banner.png",
-        link: "https://github.com/JayedBarek/CSCE5350-Fundamental-of-Database",
-        technologies: ["SQL", "Database Design", "PostgreSQL"],
-        type: "Course Project - CSCE 5350"
-    },
-    {
-        title: "Academic Portfolio",
-        description: "A comprehensive academic portfolio showcasing research work, publications, and academic achievements.",
-        image: "https://raw.githubusercontent.com/JayedBarek/academicpages.github.io/master/images/banner.jpg",
-        link: "https://github.com/JayedBarek/academicpages.github.io",
-        technologies: ["JavaScript", "Jekyll", "HTML/CSS", "Markdown"],
-        type: "Personal Website"
-    }
-];
+// GitHub username
+const githubUsername = 'JayedBarek';
 
-// Function to create project cards with enhanced details
-function createProjectCard(project) {
-    const techStack = project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('');
+// Function to fetch GitHub repositories
+async function fetchGitHubRepos() {
+    try {
+        const response = await fetch(`https://api.github.com/users/${githubUsername}/repos?sort=updated&direction=desc`);
+        const repos = await response.json();
+        return repos;
+    } catch (error) {
+        console.error('Error fetching GitHub repos:', error);
+        return [];
+    }
+}
+
+// Function to create a project card
+function createProjectCard(repo) {
+    const technologies = repo.topics || [];
+    const description = repo.description || 'No description available';
     
     return `
         <div class="project-card">
-            <img src="${project.image}" alt="${project.title}" onerror="this.src='https://via.placeholder.com/300x200?text=${encodeURIComponent(project.title)}'">
-            <div class="project-info">
-                <h3>${project.title}</h3>
-                <p>${project.description}</p>
-                <div class="tech-stack">
-                    ${techStack}
-                </div>
-                <p class="project-type">${project.type}</p>
-                <a href="${project.link}" target="_blank" class="project-link">View on GitHub</a>
+            <h3>${repo.name}</h3>
+            <p>${description}</p>
+            <div class="tech-stack">
+                ${technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                ${repo.language ? `<span class="tech-tag">${repo.language}</span>` : ''}
+            </div>
+            <div class="project-links">
+                <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+                ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" rel="noopener noreferrer">Live Demo</a>` : ''}
             </div>
         </div>
     `;
 }
 
-// Load projects when the page loads
-document.addEventListener('DOMContentLoaded', () => {
+// Load repositories when the page loads
+document.addEventListener('DOMContentLoaded', async () => {
     const projectsContainer = document.getElementById('projects-container');
-    projects.forEach(project => {
-        projectsContainer.innerHTML += createProjectCard(project);
-    });
+    projectsContainer.innerHTML = '<p>Loading repositories...</p>';
 
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
+    const repos = await fetchGitHubRepos();
+    
+    if (repos.length > 0) {
+        projectsContainer.innerHTML = repos
+            .filter(repo => !repo.fork) // Filter out forked repositories
+            .map(repo => createProjectCard(repo))
+            .join('');
+    } else {
+        projectsContainer.innerHTML = '<p>No repositories found</p>';
+    }
 });
